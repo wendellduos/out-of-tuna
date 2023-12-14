@@ -1,0 +1,32 @@
+:root {
+  --light-grey: #e4e3d8;
+  --dark-grey: #2b2c31;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  image-rendering: pixelated;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--light-grey);
+}
+
+#floor {
+  position: relative;
+  width: 100%;
+}
+
+#player {
+  position: absolute;
+  background-color: var(--dark-grey);
+}
