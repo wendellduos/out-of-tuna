@@ -8,7 +8,7 @@ The path may be dangerous, but Freddy has been waiting for this moment ever sinc
 
 This game is entriely web-based and will have controller support.
 
-For information in the project planning, see [[proj-bones]].
+For information in the project planning, see proj-bones file.
 
 ## Freddy Info
 
