@@ -6,6 +6,6 @@ floor.style.height = `${spriteSize * 3}px`;
 player.style.width = `${spriteSize}px`;
 player.style.height = `${spriteSize}px`;
 
-// player default position
-setPlayerPosition();
+// player's default position
+player.style.bottom = `${spriteSize}px`;
 player.style.left = `${spriteSize * 3}px`;
