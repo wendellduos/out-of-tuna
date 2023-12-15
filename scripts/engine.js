@@ -1,42 +1,38 @@
 const spriteSize = 64;
 
-let yPositions = [`0px`, `${spriteSize}px`, `${spriteSize * 2}px`];
-let yState = 1;
+/* PLAYER */
+
+let playerX = spriteSize * 3;
+let playerY = spriteSize * 6;
 let isJumping = false;
 
 const actions = {
   up: () => {
-    let canMove = yState >= yPositions.length - 1 ? false : true;
+    let canMove = playerY <= spriteSize * 4 ? false : true;
+
     if (canMove) {
-      yState++;
-      player.style.bottom = yPositions[yState];
+      clearPlayer(playerX, playerY, spriteSize, spriteSize);
+      playerY -= spriteSize;
+      drawPlayer(playerX, playerY, spriteSize, spriteSize);
     }
   },
   down: () => {
-    let canMove = yState <= 0 ? false : true;
+    let canMove = playerY >= spriteSize * 7 ? false : true;
+
     if (canMove) {
-      yState--;
-      player.style.bottom = yPositions[yState];
+      clearPlayer(playerX, playerY, spriteSize, spriteSize);
+      playerY += spriteSize;
+      drawPlayer(playerX, playerY, spriteSize, spriteSize);
     }
   },
   jump: () => {
     isJumping = true;
 
-    // animation handler
-    const animationSteps = ["red", "var(--dark-grey)"];
-    let timerSteps = [0, 1000];
-
-    let count = 0;
-    timerSteps.forEach((time) => {
-      setTimeout(() => {
-        player.style.backgroundColor = animationSteps[count];
-        count++;
-      }, time);
-    });
+    const jumpLength = 1000;
 
     setTimeout(() => {
       isJumping = false;
-    }, timerSteps[timerSteps.length - 1]);
+    }, jumpLength);
   },
 };
 
@@ -53,5 +49,15 @@ addEventListener("keydown", ({ key }) => {
       break;
     case " ":
       actions.jump();
+      break;
   }
 });
+
+function drawPlayer(x, y, w, h) {
+  ctx.fillStyle = "#2b2c31";
+  ctx.fillRect(x, y, w, h);
+}
+
+function clearPlayer(x, y, w, h) {
+  ctx.clearRect(x, y, w, h);
+}

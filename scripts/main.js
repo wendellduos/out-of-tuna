@@ -1,11 +1,15 @@
-const floor = document.getElementById("floor");
-const player = document.getElementById("player");
+const canvas = document.getElementById("canvas");
+const cWidth = 1024;
+const cHeight = 768;
+canvas.width = cWidth;
+canvas.height = cHeight;
 
-// set floor and player sizes based on sprite size
-floor.style.height = `${spriteSize * 3}px`;
-player.style.width = `${spriteSize}px`;
-player.style.height = `${spriteSize}px`;
+const ctx = canvas.getContext("2d");
 
-// player's default position
-player.style.bottom = `${spriteSize}px`;
-player.style.left = `${spriteSize * 3}px`;
+ctx.fillStyle = "#2b2c31";
+ctx.fillRect(0, 0, cWidth, cHeight);
+
+ctx.fillStyle = "#e4e3d8";
+ctx.fillRect(0, spriteSize * 4, cWidth, spriteSize * 4);
+
+drawPlayer(playerX, playerY, spriteSize, spriteSize);
