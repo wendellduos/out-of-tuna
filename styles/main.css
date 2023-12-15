@@ -21,3 +21,41 @@ body {
   height: 100vh;
   background-color: var(--light-grey);
 }
+
+#canvas-wrap {
+  position: relative;
+  width: 1024px;
+  height: 768px;
+}
+
+#lives-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 416px;
+  height: 96px;
+}
+
+.heart {
+  width: 32px;
+  height: 32px;
+  background-image: url("../assets/img/heart-pulsating.png");
+  background-size: cover;
+}
+
+.pulse {
+  animation: heart-pulse 2s steps(6) infinite;
+}
+
+@keyframes heart-pulse {
+  70% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -192px;
+  }
+}
