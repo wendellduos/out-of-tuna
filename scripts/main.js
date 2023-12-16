@@ -13,3 +13,7 @@ ctx.fillStyle = "#e4e3d8";
 ctx.fillRect(0, spriteSize * 4, cWidth, spriteSize * 4);
 
 drawPlayer(playerX, playerY, spriteSize, spriteSize);
+
+/*  HEARTS  */
+let playerHealth = 8;
+const hearts = document.querySelectorAll(".heart");

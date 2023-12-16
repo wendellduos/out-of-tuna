@@ -49,7 +49,10 @@ addEventListener("keydown", ({ key }) => {
       break;
     case " ":
       actions.jump();
+      // change this
       break;
+    case "p":
+      shatterHeart(hearts[playerHealth]);
   }
 });
 
@@ -60,4 +63,15 @@ function drawPlayer(x, y, w, h) {
 
 function clearPlayer(x, y, w, h) {
   ctx.clearRect(x, y, w, h);
+}
+
+function shatterHeart(e) {
+  e.className = "heart shatter";
+  playerHealth--;
+  checkGameOver();
+}
+
+function checkGameOver() {
+  if (playerHealth === -1) alert("Game Over!");
+  // put start over trigger
 }
